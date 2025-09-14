@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Coin, SortConfig } from '../types';
-import { formatCurrency, formatNumber, formatPercentage, getChangeColor, getChangeBgColor } from '../utils';
-import { ChevronUp, ChevronDown, Star, TrendingUp, TrendingDown } from 'lucide-react';
+import { formatCurrency, formatNumber, formatPercentage, getChangeColor } from '../utils';
+import { ChevronUp, ChevronDown, Star } from 'lucide-react';
 
 interface CoinTableProps {
   coins: Coin[];

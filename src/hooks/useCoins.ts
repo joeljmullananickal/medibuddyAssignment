@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Coin, SortConfig, FilterConfig, PaginationConfig } from '../types';
+import { Coin, FilterConfig, PaginationConfig } from '../types';
 import { CoinGeckoService } from '../services/api';
 import { sortCoins, filterCoins } from '../utils';
 
@@ -81,7 +81,7 @@ export const useCoins = (): UseCoinsReturn => {
   // Initial load
   useEffect(() => {
     fetchCoins(1, false);
-  }, []);
+  }, [fetchCoins]);
 
   // Apply filters and sorting
   const filteredAndSortedCoins = useMemo(() => {

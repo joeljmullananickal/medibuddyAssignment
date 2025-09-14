@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Coin, SortConfig, FilterConfig } from './types';
+import { Coin, SortConfig } from './types';
 import { useCoins } from './hooks/useCoins';
 import { useHighlights } from './hooks/useHighlights';
 import Header from './components/Header';
@@ -8,7 +8,6 @@ import HighlightsSection from './components/HighlightsSection';
 import CoinTable from './components/CoinTable';
 import CoinModal from './components/CoinModal';
 import ErrorBoundary from './components/ErrorBoundary';
-import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
   const [selectedCoin, setSelectedCoin] = useState<Coin | null>(null);
