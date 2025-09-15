@@ -204,4 +204,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Tailwind CSS](https://tailwindcss.com) for the utility-first CSS framework
 - [Lucide React](https://lucide.dev) for the beautiful icons
 - [React](https://reactjs.org) for the amazing framework
-
+ 

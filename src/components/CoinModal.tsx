@@ -57,11 +57,11 @@ const CoinModal: React.FC<CoinModalProps> = ({ coin, isOpen, onClose }) => {
             </div>
             <div className="flex items-center space-x-4">
               <div className={`flex items-center space-x-1 ${getChangeColor(coin.price_change_percentage_24h)}`}>
-                {coin.price_change_percentage_24h >= 0 ? (
+                {coin.price_change_percentage_24h !== null && coin.price_change_percentage_24h >= 0 ? (
                   <TrendingUp className="w-4 h-4" />
-                ) : (
+                ) : coin.price_change_percentage_24h !== null ? (
                   <TrendingDown className="w-4 h-4" />
-                )}
+                ) : null}
                 <span className="font-medium">
                   {formatPercentage(coin.price_change_percentage_24h)} (24h)
                 </span>

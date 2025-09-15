@@ -205,11 +205,8 @@ const CoinTable: React.FC<CoinTableProps> = ({
                   </div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
-                  <div className={`text-sm ${getChangeColor(coin.price_change_percentage_1h_in_currency || 0)}`}>
-                    {coin.price_change_percentage_1h_in_currency ? 
-                      formatPercentage(coin.price_change_percentage_1h_in_currency) : 
-                      '-'
-                    }
+                  <div className={`text-sm ${getChangeColor(coin.price_change_percentage_1h_in_currency)}`}>
+                    {formatPercentage(coin.price_change_percentage_1h_in_currency)}
                   </div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
@@ -218,11 +215,8 @@ const CoinTable: React.FC<CoinTableProps> = ({
                   </div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
-                  <div className={`text-sm ${getChangeColor(coin.price_change_percentage_7d_in_currency || 0)}`}>
-                    {coin.price_change_percentage_7d_in_currency ? 
-                      formatPercentage(coin.price_change_percentage_7d_in_currency) : 
-                      '-'
-                    }
+                  <div className={`text-sm ${getChangeColor(coin.price_change_percentage_7d_in_currency)}`}>
+                    {formatPercentage(coin.price_change_percentage_7d_in_currency)}
                   </div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">

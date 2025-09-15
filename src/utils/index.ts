@@ -34,7 +34,10 @@ export const formatNumber = (value: number): string => {
 /**
  * Format percentage values
  */
-export const formatPercentage = (value: number): string => {
+export const formatPercentage = (value: number | null | undefined): string => {
+  if (value === null || value === undefined) {
+    return '-';
+  }
   const sign = value >= 0 ? '+' : '';
   return `${sign}${value.toFixed(2)}%`;
 };
@@ -42,7 +45,8 @@ export const formatPercentage = (value: number): string => {
 /**
  * Get color class based on percentage change
  */
-export const getChangeColor = (value: number): string => {
+export const getChangeColor = (value: number | null | undefined): string => {
+  if (value === null || value === undefined) return 'text-gray-600';
   if (value > 0) return 'text-green-600';
   if (value < 0) return 'text-red-600';
   return 'text-gray-600';
@@ -116,8 +120,12 @@ export const filterCoins = (coins: Coin[], searchQuery: string): Coin[] => {
  */
 export const getTopGainers = (coins: Coin[], limit: number = 10): Coin[] => {
   return [...coins]
-    .filter(coin => coin.price_change_percentage_24h > 0)
-    .sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
+    .filter(coin => coin.price_change_percentage_24h !== null && coin.price_change_percentage_24h > 0)
+    .sort((a, b) => {
+      const aValue = a.price_change_percentage_24h || 0;
+      const bValue = b.price_change_percentage_24h || 0;
+      return bValue - aValue;
+    })
     .slice(0, limit);
 };
 
@@ -126,8 +134,12 @@ export const getTopGainers = (coins: Coin[], limit: number = 10): Coin[] => {
  */
 export const getTopLosers = (coins: Coin[], limit: number = 10): Coin[] => {
   return [...coins]
-    .filter(coin => coin.price_change_percentage_24h < 0)
-    .sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h)
+    .filter(coin => coin.price_change_percentage_24h !== null && coin.price_change_percentage_24h < 0)
+    .sort((a, b) => {
+      const aValue = a.price_change_percentage_24h || 0;
+      const bValue = b.price_change_percentage_24h || 0;
+      return aValue - bValue;
+    })
     .slice(0, limit);
 };
 

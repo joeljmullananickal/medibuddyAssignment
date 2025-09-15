@@ -11,7 +11,7 @@ export interface Coin {
   high_24h: number;
   low_24h: number;
   price_change_24h: number;
-  price_change_percentage_24h: number;
+  price_change_percentage_24h: number | null;
   market_cap_change_24h: number;
   market_cap_change_percentage_24h: number;
   circulating_supply: number;
@@ -25,8 +25,8 @@ export interface Coin {
   atl_date: string;
   roi: any;
   last_updated: string;
-  price_change_percentage_1h_in_currency?: number;
-  price_change_percentage_7d_in_currency?: number;
+  price_change_percentage_1h_in_currency?: number | null;
+  price_change_percentage_7d_in_currency?: number | null;
   sparkline_in_7d?: {
     price: number[];
   };
